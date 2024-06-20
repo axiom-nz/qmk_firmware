@@ -7,6 +7,36 @@
 
 #include "manna-harbour_miryoku.h"
 
+// Press & Hold for copy & paste
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(0,KC_Z): // Intercept hold function to send Undo
+            if (!record->tap.count && record->event.pressed) {
+                tap_code16(U_UND); 
+                return false;
+            }
+            return true;
+        case LT(0,KC_X): // Intercept hold function to send Cut
+            if (!record->tap.count && record->event.pressed) {
+                tap_code16(U_CUT); 
+                return false;
+            }
+            return true;
+        case LT(0,KC_C): // Intercept hold function to send Copy
+            if (!record->tap.count && record->event.pressed) {
+                tap_code16(U_CPY); 
+                return false;
+            }
+            return true;
+        case LT(0,KC_D): // Intercept hold function to send Paste
+            if (!record->tap.count && record->event.pressed) {
+                tap_code16(U_PST);
+                return false;
+            }
+            return true;
+    }
+    return true;
+}
 
 // Additional Features double tap guard
 
