@@ -1,0 +1,12 @@
+{
+    "keyboard_name": "Velvet v3",
+    "usb": {
+        "pid": "0x0061"
+    },
+    "features": {
+        "bootmagic": true,
+        "mousekey": false,
+        "extrakey": true,
+        "nkro": true
+    }
+}
